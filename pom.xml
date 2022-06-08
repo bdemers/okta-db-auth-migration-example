@@ -10,6 +10,7 @@
 
     <modules>
         <module>web-app</module>
+        <module>pw-import-hook</module>
     </modules>
 
 </project>
