@@ -6,11 +6,11 @@ Okta DB Migration Lab
 The application stores usernames and password hashes in a database. This lab will migrate those users to Okta.
 
 TODO:
-- [] Deal with passwords through files (`application.properties` and `docker-compose.yml`)
-- [] Flush out readme
-- [] Think about how the import hashes/import-hook flow looks
-- [] Don't use the Okta Hooks SDK, it's deprecated
-- [] Change name of `web-app` and it's Maven artifactId
+- [ ] Deal with passwords through files (`application.properties` and `docker-compose.yml`)
+- [ ] Flush out readme
+- [ ] Think about how the import hashes/import-hook flow looks
+- [ ] Don't use the Okta Hooks SDK, it's deprecated
+- [ ] Change name of `web-app` and it's Maven artifactId
 
 **Prerequisites** 
 - [Docker](https://docs.docker.com/get-docker/)
@@ -20,8 +20,8 @@ TODO:
 Clone this repo:
 
 ```bash
-git clone https://github.com/TBD -b db-users
-cd TBD
+git clone https://github.com/bdemers/okta-db-auth-migration-example -b db-users
+cd bdemers/okta-db-auth-migration-example
 ```
 
 Start up the application:
