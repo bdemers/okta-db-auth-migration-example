@@ -48,7 +48,8 @@ authentication with OpenID Connect (OIDC).
 git checkout `main`
 ```
 
-> **TODO:** Add a link to the diff to explain what changed?
+> **TODO:** Add a link to the diff to explain what changed? 
+> https://github.com/bdemers/okta-db-auth-migration-example/commit/b545dee92960a97f7f7c7df39c1db5370eda6c95
 
 Run the `migrate-users.sh` script which uses a DB query and the Okta API to import users into Okta.
 Users with hashes Okta can import are imported preventing the need for password resets. The first time the user logs
