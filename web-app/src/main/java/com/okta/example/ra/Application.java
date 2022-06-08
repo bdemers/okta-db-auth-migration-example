@@ -6,14 +6,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.provisioning.JdbcUserDetailsManager;
-import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.sql.DataSource;
 import java.util.Map;
 
 @SpringBootApplication
@@ -29,17 +26,8 @@ public class Application {
             .authorizeHttpRequests((authz) -> authz
                 .anyRequest().authenticated()
             )
-            .formLogin();
+            .oauth2Login();
         return http.build();
-    }
-
-    @Bean
-    UserDetailsManager users(DataSource dataSource) {
-        JdbcUserDetailsManager userManager = new JdbcUserDetailsManager(dataSource);
-        userManager.setEnableGroups(true);
-        userManager.setEnableAuthorities(false);
-
-        return userManager;
     }
 
     @Controller
