@@ -9,7 +9,6 @@ TODO:
 - [ ] Deal with passwords through files (`application.properties` and `docker-compose.yml`)
 - [ ] Flush out readme
 - [ ] Think about how the import hashes/import-hook flow looks
-- [ ] Don't use the Okta Hooks SDK, it's deprecated
 - [ ] Change name of `web-app` and it's Maven artifactId
 - [ ] The running of the migration script requires a bunch of utils
 

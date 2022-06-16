@@ -1,8 +1,8 @@
 package com.okta.example.ra;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.okta.hooks.sdk.commands.Command;
-import com.okta.hooks.sdk.commands.HookResponse;
+import com.okta.example.ra.models.Command;
+import com.okta.example.ra.models.HookResponse;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -59,9 +59,6 @@ public class Application {
             boolean result = passwordValidator.isPasswordValid(username, password);
             String status = result ? "VERIFIED" : "UNVERIFIED";
 
-            // TODO: latest version of Okta Hooks SDK supports password hook directly
-            // but it hasn't been released yet
-            // need to ensure we can use this SDK before continuing
             return new HookResponse()
                     .setCommands(Collections.singletonList(
                             new Command("com.okta.action.update",
