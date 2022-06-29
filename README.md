@@ -6,7 +6,7 @@ Okta DB Migration Lab
 The application stores usernames and password hashes in a database. This lab will migrate those users to Okta.
 
 TODO:
-- [ ] Deal with passwords through files (`application.properties` and `docker-compose.yml`)
+- [ ] Deal with passwords through files (`application.properties`, `docker-compose.yml`, and `main.tf`)
 - [ ] Flush out readme
 - [ ] Think about how the import hashes/import-hook flow looks
 - [ ] Change name of `web-app` and it's Maven artifactId
@@ -128,3 +128,22 @@ This user had an unsupported hash, here is the flow of events:
 - Okta stores a hash of the user's password
 - The user is redirected back to the web-app
 
+## NOTES about using Terraform
+
+To use Terraform, configure the environment variables listed in [the docs](https://registry.terraform.io/providers/okta/okta/latest/docs#environment-variables).
+
+Then run the following commands:
+
+```bash
+terraform init
+
+# import existing resources 
+terraform import okta_auth_server.default default
+terraform import okta_group.everyone {the-id-of-your-orgs-everyone-groups}
+
+# show the plan
+terraform plan -var 'pw_import_hook_url={your-ngrok-url}/pwhook'
+
+# apply the changes
+terraform apply -var 'pw_import_hook_url={your-ngrok-url}/pwhook'
+```
